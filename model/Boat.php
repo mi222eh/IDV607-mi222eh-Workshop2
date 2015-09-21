@@ -1,37 +1,28 @@
 <?php
 
 class Boat {
-    private $size;
+
+    private $length;
     private $type;
-    private $image;
     
-    function __construct($size, $type, $image){
-        $this->size = $size;
+    function __construct($length, $type){
+        $this->length = $length;
         $this->type = $type;
-        $this->image = $image;
     }
     
-    function setSize($size){
-        $this->size = $size;
+    function setLength($length){
+        $this->length = $length;
+    }
+    
+    function getLength() {
+        return $this->length;
     }
     
     function setType($type){
         $this->type = $type;
     }
     
-    function setImage($image) {
-        $this->image = $image;
-    }
-    
-    function getSize() {
-        return $this->size;
-    }
-    
     function getType() {
         return $this->type;
-    }
-    
-    function getImage() {
-        return $this->image;
     }
 }

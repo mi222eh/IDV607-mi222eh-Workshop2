@@ -2,7 +2,7 @@
 
 class LayoutHtmlView{
     
-    function render($view){
+    function render($container){
         
         
     
@@ -16,7 +16,7 @@ class LayoutHtmlView{
           <h1>Välkommen</h1>
           <div class="container">
             '.
-                $view->render()
+                $container->response()
                 .'
           </div>
          </body>

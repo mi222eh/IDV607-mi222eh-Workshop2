@@ -1,6 +1,6 @@
 <?php
 
-class MembersDAL{
+class BoatsDAL{
     
     private $location;
     
