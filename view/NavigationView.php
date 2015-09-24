@@ -22,7 +22,7 @@ class NavigationView {
         
         return $ret;
     }
-    function doesUserWantToCreateNewMember(){
+    function doesUserWantToGoToCreateNewMember(){
         return isset($_GET[self::$GETCreateNewMember]);
     }
 }

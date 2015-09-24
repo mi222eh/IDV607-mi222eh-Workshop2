@@ -15,7 +15,7 @@ class LayoutHtmlView{
         </head>
         <body>
         <header id="header">
-            <h1>Välkommen</h1>
+            <h1>Välkammad</h1>
           </header>
           <nav id="nav">
             '. 

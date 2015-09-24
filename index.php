@@ -17,6 +17,7 @@ require_once('view/MemberCompactView.php');
 require_once('view/MemberVerboseView.php');
 require_once('view/ContainerView.php');
 require_once('view/NavigationView.php');
+require_once('view/CreateUserView.php');
 
 //Controllers
 require_once("controller/controller.php");
@@ -25,11 +26,12 @@ require_once("controller/controller.php");
 $memberCatalogue = new MemberCatalogue();
 
 //Create view
+$createUserView = new CreateUserView();
 $layout = new LayoutHtmlView();
 $compactView = new MemberCompactView();
 $verboseView = new MemberVerboseView();
 $navigationView = new NavigationView();
-$container = new ContainerView($memberCatalogue, $compactView, $verboseView, $navigationView); //Include all models
+$container = new ContainerView($memberCatalogue, $compactView, $verboseView, $navigationView, $createUserView); 
 
 //Create controllers
 $controller = new Controller($memberCatalogue, $container); //Create controller who 

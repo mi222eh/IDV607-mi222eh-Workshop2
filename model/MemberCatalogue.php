@@ -13,19 +13,10 @@ class MemberCatalogue {
             $this->members = $members;
         }
         else{
-            $this->member = array();
+            $this->members = array();
         }
         
         $this->DAL = $DAL;
-        
-        $this->add(new Member(rand(), 'Bengan', 19760405, null));
-        $this->add(new Member(rand(), 'Lars', 1337, null));
-        $this->add(new Member(rand(), 'Lars', 1337, null));
-        
-        $this->members[0]->addBoat(new Boat(12, "Gummiplåt"));
-        $this->members[1]->addBoat(new Boat(13, "Yacht"));
-        $this->members[2]->addBoat(new Boat(14, "Träfloppa"));
-        $this->members[0]->addBoat(new Boat(14, "MUAHAHAHAHAHA"));
     }
     
     public function add($member) {
