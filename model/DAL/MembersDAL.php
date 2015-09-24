@@ -2,20 +2,21 @@
 
 class MembersDAL{
     
-    private $location;
-    
     function __contruct(){
-        $this->location = 'data/members.users';
     }
     
     function getMembers(){
-        $str = file_get_contents($this->location);
-        return unserialize($str);
+        
+        if(filesize('members.users') > 0){
+            $str = file_get_contents('members.users');
+            return unserialize($str);
+        }
+        
+        return null;
     }
     
-    function saveMembers($members){
+    function saveMembers($members) {
         $str = serialize($members);
-        file_put_contents($this->location, $str);
+        file_put_contents('members.users', $str);
     }
-    
 }

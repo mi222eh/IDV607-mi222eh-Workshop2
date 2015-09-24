@@ -1,11 +1,13 @@
 <?php
 
+ini_set ("display_errors", "1");
+
+error_reporting(E_ALL);
+
 //Models
 require_once('model/Boat.php');
 require_once('model/Member.php');
 require_once('model/MemberCatalogue.php');
-require_once('model/Secretary.php');
-require_once('model/Treasurer.php');
 require_once('model/DAL/MembersDAL.php');
 require_once('model/DAL/BoatsDAL.php');
 
@@ -14,6 +16,7 @@ require_once('view/LayoutHtmlView.php');
 require_once('view/MemberCompactView.php');
 require_once('view/MemberVerboseView.php');
 require_once('view/ContainerView.php');
+require_once('view/NavigationView.php');
 
 //Controllers
 require_once("controller/controller.php");
@@ -25,8 +28,8 @@ $memberCatalogue = new MemberCatalogue();
 $layout = new LayoutHtmlView();
 $compactView = new MemberCompactView();
 $verboseView = new MemberVerboseView();
-$container = new ContainerView($memberCatalogue, $compactView, $verboseView); //Include all models
-
+$navigationView = new NavigationView();
+$container = new ContainerView($memberCatalogue, $compactView, $verboseView, $navigationView); //Include all models
 
 //Create controllers
 $controller = new Controller($memberCatalogue, $container); //Create controller who 
@@ -35,5 +38,5 @@ $controller = new Controller($memberCatalogue, $container); //Create controller 
 $controller->doAction();
 
 //Render Result
-$layout->render($container);
+$layout->render($container, $navigationView);
 

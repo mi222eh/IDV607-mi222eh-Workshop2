@@ -4,8 +4,8 @@ class MemberVerboseView{
     
     function response($memberCatalogue){
         $members = $memberCatalogue->getMembers();
-        $ret;
-        $ret -= '<ul>';
+        $ret = '';
+        $ret .= '<ul>';
         foreach($members as $member){
             $number = 1;
             $ret .='<li><h2>Namn: ' . $member->getName() . '</h2></li>
@@ -32,5 +32,4 @@ class MemberVerboseView{
         
         return $ret;
     }
-     
 }

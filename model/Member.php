@@ -20,6 +20,10 @@ class Member{
         $this->name = $name;
     }
     
+    public function changePersonalNumber($personalNumber) {
+        $this->personalNumber = $personalNumber;
+    }
+    
     function getId() {
         return $this->id;
     }
@@ -38,7 +42,7 @@ class Member{
     }
     
     public function deleteBoat($id) {
-        //$this->boats[]->$id; //hur deleta från array??
+        //$this->boats[]->$id; //hur deleta från array??　Jag vet i fan - BG
     }
     function getNumberOfBoats(){
         return count($this->boats);

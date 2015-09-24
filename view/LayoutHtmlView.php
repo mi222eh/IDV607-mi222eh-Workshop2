@@ -2,7 +2,7 @@
 
 class LayoutHtmlView{
     
-    function render($container){
+    function render($container, $navigationView){
         
         
     
@@ -11,9 +11,17 @@ class LayoutHtmlView{
         <head>
           <meta charset="utf-8">
           <title>Workshop 2</title>
+          <link rel="stylesheet" type="text/css" href="css/style.css">
         </head>
         <body>
-          <h1>Välkommen</h1>
+        <header id="header">
+            <h1>Välkommen</h1>
+          </header>
+          <nav id="nav">
+            '. 
+              $navigationView->generateLinks()
+            .'
+          </div>
           <div class="container">
             '.
                 $container->response()
