@@ -6,10 +6,10 @@ class ContainerView {
     private $memberCatalogue;
     
     //Views
-    private $memberCompactView;
-    private $memberVerboseView;
+    private $memberListView;
     private $navigationView;
     private $createMemberView;
+    private $memberView;
     
     //Status
     private $userWantToGoToVerboseView = false;
@@ -18,24 +18,28 @@ class ContainerView {
     private $userWantToCreateMember = false;
     
     
-    function __construct($memberCatalogue, $memberCompactView, $memberVerboseView, $navigationView, $createMemberView){
+    function __construct($memberCatalogue,$memberListView, $navigationView, $createMemberView, $memberView){
         $this->memberCatalogue = $memberCatalogue;
-        $this->memberCompactView = $memberCompactView;
-        $this->memberVerboseView = $memberVerboseView;
+        $this->memberListView = $memberListView;
         $this->navigationView = $navigationView;
         $this->createMemberView = $createMemberView;
+        $this->memberView = $memberView;
     }
     
     public function response() {
         $ret = '';
-        if($this->userWantToGoToVerboseView){
-            $ret .= $this->memberVerboseView->response($this->memberCatalogue);
+        
+        if($this->userWantToGoToCreateNewMember){
+            $ret .= $this->createMemberView->response(false, $this->memberCatalogue);
         }
-        else if($this->userWantToGoToCreateNewMember){
-            $ret .= $this->createMemberView->response();
+        else if($this->doesUserWantToWatchMember()){
+            $ret .= $this->memberView->response($this->memberCatalogue);
         }
-        else {
-            $ret .= $this->memberCompactView->response($this->memberCatalogue);
+        else if($this->doesTheUserWantToEdit()){
+            $ret .= $this->createMemberView->response(true, $this->memberCatalogue);
+        }
+        else{
+            $ret .= $this->memberListView->response($this->memberCatalogue, $this->userWantToGoToVerboseView);
         }
        return $ret;
     }
@@ -52,12 +56,20 @@ class ContainerView {
         return $this->navigationView->doesUserWantToWatchCompact();
     }
     
+    public function doesUserWantToWatchMember(){
+        return $this->memberListView->userWantToWatchMember();
+    }
+    
     public function doesTheUserWantToEdit() {
-        //NOTHING
+        return $this->memberView->userWantToEdit();
     }
     
     public function doesTheUserWantToErase() {
-        //NOTHING
+        return $this->memberView->userWantToErase();
+    }
+    
+    public function doesTheUserPressEdit(){
+        return $this->createMemberView->didUserClickEdit();
     }
     
     public function setUserWantToGoToVerboseView() {
@@ -70,5 +82,9 @@ class ContainerView {
     
     public function setUserWanToGoToCreateNewMember(){
         $this->userWantToGoToCreateNewMember = true;
+    }
+    
+    public function didUserClickCreateMember(){
+        return $this->createMemberView->doesUserWantToCreateNewMember();
     }
 }

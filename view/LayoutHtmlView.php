@@ -3,9 +3,6 @@
 class LayoutHtmlView{
     
     function render($container, $navigationView){
-        
-        
-    
         echo '<!DOCTYPE html>
       <html>
         <head>
@@ -15,14 +12,14 @@ class LayoutHtmlView{
         </head>
         <body>
         <header id="header">
-            <h1>Välkammad</h1>
+            <h1>Välkommen</h1>
           </header>
-          <nav id="nav">
+          <div id="nav">
             '. 
               $navigationView->generateLinks()
             .'
           </div>
-          <div class="container">
+          <div id="container">
             '.
                 $container->response()
                 .'

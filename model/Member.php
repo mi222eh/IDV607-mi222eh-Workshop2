@@ -6,7 +6,7 @@ class Member{
     private $personalNumber;
     private $boats = array();
     
-    function __construct($id, $name, $personalNumber, $boats){
+    function __construct($id, $name, $personalNumber){
         $this->id = $id;
         $this->name = $name;
         $this->personalNumber = $personalNumber;
@@ -46,5 +46,13 @@ class Member{
     }
     function getNumberOfBoats(){
         return count($this->boats);
+    }
+    
+    function setName($name){
+        $this->name;
+    }
+    
+    function setSsn($ssn){
+        $this->personalNumber = $ssn;
     }
 }

@@ -15,9 +15,9 @@ class NavigationView {
     public function generateLinks(){
         $ret = '';
         $ret .='<ul>';
-        $ret .='<li><a href="?'. self::$GETCompact .'=JA">Kompakt lista</a></li> ';
-        $ret .='<li><a href="?'. self::$GETVerbose .'=JA">Utförlig lista</a></li> ';
-        $ret .='<li><a href="?'. self::$GETCreateNewMember .'=JA">Skapa ny medlem</a></li> ';
+        $ret .='<li><a href="?'. self::$GETCompact .'">Kompakt lista</a></li> ';
+        $ret .='<li><a href="?'. self::$GETVerbose .'">Utförlig lista</a></li> ';
+        $ret .='<li><a href="?'. self::$GETCreateNewMember .'">Skapa ny medlem</a></li> ';
         $ret .='</ul>';
         
         return $ret;
