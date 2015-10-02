@@ -34,8 +34,16 @@ class Member{
     function getName(){
         return $this->name;
     }
-    function addBoat(Boat $boat){
-        $this->boats[] = $boat;
+    function addBoat($type, $length){
+        $id = 0;
+        foreach($this->boats as $boat){
+            if($boat->getId() > $id){
+                $id = $boat->getId();
+            }
+        }
+        $id++;
+        
+        $this->boats[] = new Boat($type, $length, $id);
     }
     function getBoats(){
         return $this->boats;

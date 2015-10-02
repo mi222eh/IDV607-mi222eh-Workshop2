@@ -6,15 +6,17 @@ class controller{
     private $createController;
     private $memberListView;
     private $deleteMemberController;
+    private $createBoatController;
     
-    public function __construct($memberCatalogue, $containerView, $createController, $memberListView, $deleteMemberController, $editMemberController) {
+    public function __construct($memberCatalogue, $containerView, $createController, $memberListView, $deleteMemberController, $editMemberController, $createBoatController) {
         $this->memberCatalogue = $memberCatalogue;
         $this->containerView = $containerView;
         $this->createController = $createController;
         $this->memberListView = $memberListView;
         $this->deleteMemberController = $deleteMemberController;
         $this->editMemberController = $editMemberController;
-        }
+        $this->createBoatController = $createBoatController;
+    }
     
     public function doAction() {
         if($this->containerView->doesUserWantToWatchVerboseList()){
@@ -22,7 +24,7 @@ class controller{
         }
         
         else if($this->containerView->doesTheUserWantToCreate()){
-            $this->containerView->setUserWanToGoToCreateNewMember();
+            $this->containerView->setUserWantToGoToCreateNewMember();
             if($this->containerView->didUserClickCreateMember()){
                 $this->createController->doCreate();
             }
@@ -38,6 +40,9 @@ class controller{
             
             if($this->containerView->doesTheUserPressEdit()){
                 $this->editMemberController->doEdit();
+            }
+            elseif($this->containerView->doesUserWantToAddBoat()){
+                $this->createBoatController->doAddBoat();
             }
             else{
                 $this->editMemberController->prepareEdit();

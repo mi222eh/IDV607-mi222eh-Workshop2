@@ -17,29 +17,33 @@ require_once('view/ContainerView.php');
 require_once('view/NavigationView.php');
 require_once('view/CreateMemberView.php');
 require_once('view/MemberView.php');
+require_once('view/CreateBoatView.php');
 
 //Controllers
 require_once("controller/controller.php");
 require_once("controller/editMemberController.php");
 require_once("controller/createMemberController.php");
 require_once("controller/deleteMemberController.php");
+require_once("controller/createBoatController.php");
 
 //Create Models
 $memberCatalogue = new MemberCatalogue();
 
 //Create view
+$createBoatView = new CreateBoatView();
 $memberView = new MemberView();
 $memberListView = new MemberListView();
 $createMemberView = new CreateMemberView();
 $layout = new LayoutHtmlView();
 $navigationView = new NavigationView();
-$container = new ContainerView($memberCatalogue, $memberListView, $navigationView, $createMemberView, $memberView); 
+$container = new ContainerView($memberCatalogue, $memberListView, $navigationView, $createMemberView, $memberView, $createBoatView); 
 
 //Create controllers
 $editMemberController = new editMemberController($memberView, $memberCatalogue, $createMemberView);
 $createMemberController = new createMemberController($memberCatalogue, $createMemberView);
 $deleteMemberController = new deleteMemberController($memberView, $memberCatalogue);
-$controller = new Controller($memberCatalogue, $container, $createMemberController, $memberListView, $deleteMemberController, $editMemberController); 
+$createBoatController = new createBoatController($memberCatalogue, $createBoatView, $memberView);
+$controller = new Controller($memberCatalogue, $container, $createMemberController, $memberListView, $deleteMemberController, $editMemberController, $createBoatController); 
 
 //Handle input
 $controller->doAction();

@@ -24,7 +24,7 @@ class MemberListView{
             $ret .= '<div class="memberContainer">';
             $number = 1;
             $ret .='<li><h2>Namn: ' . $member->getName() . '</h2></li>
-            <li>Personnr: '. $member->getPersonalNumber() .'</li>
+            <li>Pnr: '. $member->getPersonalNumber() .'</li>
             <li>MedlemsId: '. $member->getId() .'</li>';
             $ret .='<ul>';
             foreach($member->getBoats() as $boat){
@@ -84,7 +84,7 @@ class MemberListView{
     private function generateLinks($member){
         $ret = '';
         
-        $ret .= '<a href="?'. self::$member .'='. $member->getId().'">Detaljer</a>';
+        $ret .= '<a href="?'. self::$member .'='. $member->getId().'">Detaljer för medlem ' . $member->getName() . '</a>';
         
         return $ret;
     }

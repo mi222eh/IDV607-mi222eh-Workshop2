@@ -79,4 +79,11 @@ class MemberCatalogue {
         
         $this->saveMembers();
     }
+    
+    public function addBoatToMemberId($type, $length, $id){
+        $member = $this->getMemberById($id);
+        $member->addBoat($type, $length);
+        
+        $this->saveMembers();
+    }
 }

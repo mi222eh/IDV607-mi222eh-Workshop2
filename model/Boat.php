@@ -4,10 +4,12 @@ class Boat {
 
     private $length;
     private $type;
+    private $id;
     
-    function __construct($length, $type){
+    function __construct($length, $type, $id){
         $this->length = $length;
         $this->type = $type;
+        $this->id = $id;
     }
     
     function setLength($length){
@@ -24,5 +26,8 @@ class Boat {
     
     function getType() {
         return $this->type;
+    }
+    function getId(){
+        return $this->id;
     }
 }

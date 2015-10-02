@@ -34,7 +34,7 @@ class CreateMemberView{
                     <fieldset>
                         <legend>Skapa ny användare</legend>
                         Namn: <input type="text" id="'. self::$name .'" name="'. self::$name .'"></input><br>
-                        Personnr: <input type="number" id="'. self::$ssn .'" name="'. self::$ssn .'"></input><br>
+                        Pnr: <input type="number" id="'. self::$ssn .'" name="'. self::$ssn .'"></input><br>
                         <input type="submit" value="Skapa medlem" id="'. self::$createNew .'" name="'. self::$createNew .'"></input>
                     </fieldset>
                 </form>';

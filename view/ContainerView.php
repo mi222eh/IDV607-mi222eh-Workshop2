@@ -10,20 +10,23 @@ class ContainerView {
     private $navigationView;
     private $createMemberView;
     private $memberView;
+    private $createBoatView;
     
     //Status
     private $userWantToGoToVerboseView = false;
     private $userWantToGoToCompactView = false;
     private $userWantToGoToCreateNewMember = false;
     private $userWantToCreateMember = false;
+    private $userWantToAddBoat = false;
     
     
-    function __construct($memberCatalogue,$memberListView, $navigationView, $createMemberView, $memberView){
+    function __construct($memberCatalogue,$memberListView, $navigationView, $createMemberView, $memberView, $createBoatView){
         $this->memberCatalogue = $memberCatalogue;
         $this->memberListView = $memberListView;
         $this->navigationView = $navigationView;
         $this->createMemberView = $createMemberView;
         $this->memberView = $memberView;
+        $this->createBoatView = $createBoatView;
     }
     
     public function response() {
@@ -36,7 +39,12 @@ class ContainerView {
             $ret .= $this->memberView->response($this->memberCatalogue);
         }
         else if($this->doesTheUserWantToEdit()){
-            $ret .= $this->createMemberView->response(true, $this->memberCatalogue);
+            if($this->doesUserWantToAddBoat()){
+                $ret .= $this->createBoatView->response(false, $this->memberCatalogue);
+            }
+            else{
+                $ret .= $this->createMemberView->response(true, $this->memberCatalogue);
+            }
         }
         else{
             $ret .= $this->memberListView->response($this->memberCatalogue, $this->userWantToGoToVerboseView);
@@ -80,11 +88,15 @@ class ContainerView {
         $this->userWantToGoToCompactView = true;
     }
     
-    public function setUserWanToGoToCreateNewMember(){
+    public function setUserWantToGoToCreateNewMember(){
         $this->userWantToGoToCreateNewMember = true;
     }
     
     public function didUserClickCreateMember(){
         return $this->createMemberView->doesUserWantToCreateNewMember();
+    }
+    
+    public function doesUserWantToAddBoat(){
+        return $this->memberView->userWantToAddBoat();
     }
 }

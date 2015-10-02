@@ -31,6 +31,13 @@ h1{
 	text-decoration: none;
 }
 
+a{
+	padding:3px;
+	font-size: 16px;
+	font-style: italic;
+	color: black;
+}
+
 a:hover{
 	color:white;
 }
@@ -58,8 +65,26 @@ ul{
 }
 
 form{
-	padding-left:450px;
-	padding-right:450px;
+	margin-top: 5px;
+	padding-left:40%;
+	padding-right:40%;
+	
+	text-align: left;
+}
+
+.memberContainer{
+	border-width: 2px;
+	border-style: solid;
+	border-color: purple;
+	width: 30%;
+	margin: 0 auto 1% auto;
+	padding-bottom: 1%;
+	background-color: fuchsia;
+	
+}
+
+.memberContainer h2, .memberContainer a{
+	word-wrap:break-word;
 }
 
 
