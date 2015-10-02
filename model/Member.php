@@ -7,6 +7,18 @@ class Member{
     private $boats = array();
     private $boatToWatch;
     
+    /*
+    <-----Member----->
+    
+    Description:
+    Defines a member object
+    
+    Constructor parameters:
+    -Id
+    -Name
+    -Personal number
+    */
+    
     function __construct($id, $name, $personalNumber){
         $this->id = $id;
         $this->name = $name;

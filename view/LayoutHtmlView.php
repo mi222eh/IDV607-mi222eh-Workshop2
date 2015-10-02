@@ -1,6 +1,16 @@
 <?php
 
 class LayoutHtmlView{
+  
+  /*
+    <-----Layout HTML View----->
+    
+    Description:
+    Creates a html layout
+    
+    Constructor parameters:
+    Nothing
+    */
     
     function render($container, $navigationView){
         echo '<!DOCTYPE html>

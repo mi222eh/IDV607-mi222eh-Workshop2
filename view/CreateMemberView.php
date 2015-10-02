@@ -6,6 +6,16 @@ class CreateMemberView{
     private static $createNew = 'POST::CREATEMEMBER';
     private static $edit = 'POST::EDITMEMBER';
     
+    /*
+    <-----Create Boat View----->
+    
+    Description:
+    Input for creating or editing member
+    
+    Constructor parameters:
+    Nothing
+    */
+    
     function response($editMode, $memberCat){
         $ret ='';
         if($editMode){

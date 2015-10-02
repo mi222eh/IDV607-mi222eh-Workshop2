@@ -8,6 +8,16 @@ class MemberView{
     private static $deleteBoat = "deleteBoat";
     private static $editBoat = "editBoat";
     
+      /*
+    <-----Member View----->
+    
+    Description:
+    Renders information about a certin member
+    
+    Constructor parameters:
+    Nothing
+    */
+    
     function response($memberCatalogue){
         
         $member = $memberCatalogue->getToBeViewed();
@@ -16,7 +26,7 @@ class MemberView{
         
         $ret .= '<div class="memberContainer">';
         
-        $ret .= '<h1>'. $member->getName() .'</h1>';
+        $ret .= '<h2>'. $member->getName() .'</h2>';
         
         $ret .= '<ul>';
         

@@ -1,4 +1,15 @@
 <?php
+    /*
+ <-----Navigation View----->
+    
+    Description:
+    Handles editing members
+    
+    Constructor parameters:
+    -MemberView from View
+    -Membercatalogue from model
+    -CreateMemberView from View
+    */
 
 class NavigationView {
     private static $GETVerbose = 'verbose';

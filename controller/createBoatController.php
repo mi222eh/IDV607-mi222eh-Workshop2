@@ -1,15 +1,31 @@
 <?php
+/*
+
+*/
 
 class createBoatController{
     private $createBoatView;
     private $memberView;
     private $memberCat;
     
+    /*
+    <-----Create Boat Controller----->
+    
+    Description:
+    Handles creating new boats
+    
+    Constructor parameters:
+    -Membercatalogue from model
+    -CreateBoatViewView from View
+    -MemberView from View
+    */
+    
     function __construct($memberCat, $createBoatView, $memberView){
         $this->createBoatView = $createBoatView;
         $this->memberCat = $memberCat;
         $this->memberView = $memberView;
     }
+    
     
     function doAddBoat(){
         if($this->createBoatView->doesUserWantToCreateNewBoat()){

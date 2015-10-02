@@ -4,6 +4,16 @@ class MemberListView{
     
     private static $member = "member";
     
+      /*
+    <-----Member List View----->
+    
+    Description:
+    Renders a verbose or compact list view of members
+    
+    Constructor parameters:
+    Nothing
+    */
+    
     function response($memberCatalogue, $isVerbose){
         $ret = '';
         if($isVerbose){
@@ -23,7 +33,7 @@ class MemberListView{
         foreach($members as $member){
             $ret .= '<div class="memberContainer">';
             $number = 1;
-            $ret .='<li><h2>Namn: ' . $member->getName() . '</h2></li>
+            $ret .='<li><h2>' . $member->getName() . '</h2></li>
             <li>Pnr: '. $member->getPersonalNumber() .'</li>
             <li>MedlemsId: '. $member->getId() .'</li>';
             $ret .='<ul>';
@@ -37,7 +47,7 @@ class MemberListView{
                             Typ: ' . $boat->getType() . 
                         '</li>';
                 $ret .='<li>
-                            Längd: ' . $boat->getLength() . 
+                            Längd: ' . $boat->getLength() . ' meter' .  
                         '</li>';
                 $ret .= '</div>';
                         
@@ -63,7 +73,7 @@ class MemberListView{
         foreach($memberCatalogue->getMembers() as $member){
             $ret .= '<div class="memberContainer">';
             
-            $ret .= '<li><h2>Namn: '. $member->getName() .'</h2></li>';
+            $ret .= '<li><h2>'. $member->getName() .'</h2></li>';
             
             $ret .= '<li>Id: '. $member->getId() . '</li>';
             

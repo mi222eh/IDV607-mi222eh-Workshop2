@@ -6,6 +6,16 @@ class CreateBoatView{
     private static $createNewBoat = 'POST::CREATEBOAT';
     private static $edit = 'POST::EDITBOAT';
     
+    /*
+    <-----Create Boat View----->
+    
+    Description:
+    Input for creating or editing boat
+    
+    Constructor parameters:
+    Nothing
+    */
+    
     function response($editMode, $memberCat){
         $ret ='';
         if($editMode){

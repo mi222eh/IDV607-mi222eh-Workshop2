@@ -6,6 +6,16 @@ class MemberCatalogue {
     private $DAL;
     private $toBeViewed;
     
+    /*
+    <-----Member Catalogue----->
+    
+    Description:
+    Holds all the members
+    
+    Constructor parameters:
+    Nothing
+    */
+    
     public function __construct(){
         
         $DAL = new MembersDAL();

@@ -4,6 +4,17 @@ class createMemberController{
     private $memberCatalogue;
     private $createView;
     
+    /*
+    <-----Controller----->
+    
+    Description:
+    Handles creating new members
+    
+    Constructor parameters:
+    -Membercatalogue from model
+    -CreateMemberView from View
+    */
+    
     function __construct(MemberCatalogue $memberCatalogue, CreateMemberView $createMemberView){
         $this->memberCatalogue = $memberCatalogue;
         $this->createView = $createMemberView;

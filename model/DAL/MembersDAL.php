@@ -3,11 +3,15 @@
 class MembersDAL{
     
     private $directory = "members.users";
+    /*
+    <-----Members Data Access Layer----->
     
-    function __contruct(){
-     
-    }
+    Description:
+    Handles loading and saving of members
     
+    Constructor parameters:
+    -Nothing
+    */
     function getMembers(){
         
         if(filesize($this->directory) > 0){

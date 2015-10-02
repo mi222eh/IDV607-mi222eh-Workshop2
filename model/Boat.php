@@ -6,6 +6,18 @@ class Boat {
     private $type;
     private $id;
     
+    /*
+    <-----Boat----->
+    
+    Description:
+    Defines a boat object
+    
+    Constructor parameters:
+    -Length
+    -Type
+    -Id
+    */
+    
     function __construct($length, $type, $id){
         $this->length = $length;
         $this->type = $type;

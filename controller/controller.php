@@ -11,7 +11,15 @@ class controller{
     private $editBoatController;
     
     /*
-    Main 
+    <-----Controller----->
+    
+    Description:
+    Handles user input
+    
+    Constructor parameters:
+    -Every controller from controllers
+    -Membercatalogue from model
+    -ContainerView from View
     */
     public function __construct($memberCatalogue, 
     $containerView, 
@@ -33,17 +41,25 @@ class controller{
         $this->editBoatController = $editBoatController;
     }
     
+    /*
+        Handles user input
+    */
     public function doAction() {
+        
+        //Check intention: Verbose list
         if($this->containerView->doesUserWantToWatchVerboseList()){
             $this->containerView->setUserWantToGoToVerboseView();
         }
         
+        //Check intention: Create member
         else if($this->containerView->doesTheUserWantToCreate()){
             $this->containerView->setUserWantToGoToCreateNewMember();
             if($this->containerView->didUserClickCreateMember()){
                 $this->createController->doCreate();
             }
         }
+        
+        //Check intention: Watch member
         else if($this->containerView->doesUserWantToWatchMember()) {
             $this->memberCatalogue->toWatch($this->memberListView->getMemberId());
         }
@@ -51,18 +67,28 @@ class controller{
             $this->deleteMemberController->doErase();
         }
         
+        //Check intention: Edit member
         else if($this->containerView->doesTheUserWantToEdit()){
             
+            //Check intention: Edit member (clicked)
             if($this->containerView->doesTheUserPressEdit()){
                 $this->editMemberController->doEdit();
             }
+            
+            //Check intention: Delete boat
             elseif($this->containerView->doesUserWantToDeleteBoat()){
                 $this->deleteBoatController->doDelete();
             }
+            
+            //Check intention: Add boat
             elseif($this->containerView->doesUserWantToAddBoat()){
                 $this->createBoatController->doAddBoat();
             }
+            
+            //Check intention: Edit boat
             elseif($this->containerView->doesUserWantToEditBoat()){
+                
+                //Check intention: Edit boat (clicked)
                 if($this->containerView->didUserClickEditBoat()){
                    $this->editBoatController->doEditBoat(); 
                 }

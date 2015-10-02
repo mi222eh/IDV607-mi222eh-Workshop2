@@ -38,16 +38,45 @@ $memberListView = new MemberListView();
 $createMemberView = new CreateMemberView();
 $layout = new LayoutHtmlView();
 $navigationView = new NavigationView();
-$container = new ContainerView($memberCatalogue, $memberListView, $navigationView, $createMemberView, $memberView, $createBoatView); 
+$container = new ContainerView($memberCatalogue, 
+                                $memberListView, 
+                                $navigationView, 
+                                $createMemberView, 
+                                $memberView, 
+                                $createBoatView); 
 
 //Create controllers
-$editMemberController = new editMemberController($memberView, $memberCatalogue, $createMemberView);
-$createMemberController = new createMemberController($memberCatalogue, $createMemberView);
-$deleteMemberController = new deleteMemberController($memberView, $memberCatalogue);
-$createBoatController = new createBoatController($memberCatalogue, $createBoatView, $memberView);
-$editBoatController = new editBoatController($createBoatView, $memberCatalogue, $memberView);
-$deleteBoatController = new deleteBoatController($memberCatalogue, $memberView);
-$controller = new Controller($memberCatalogue, $container, $createMemberController, $memberListView, $deleteMemberController, $editMemberController, $createBoatController, $deleteBoatController, $editBoatController); 
+$editMemberController = new editMemberController($memberView, 
+                                                $memberCatalogue, 
+                                                $createMemberView);
+
+
+$createMemberController = new createMemberController($memberCatalogue, 
+                                                    $createMemberView);
+
+$deleteMemberController = new deleteMemberController($memberView, 
+                                                    $memberCatalogue);
+
+$createBoatController = new createBoatController($memberCatalogue, 
+                                                $createBoatView, 
+                                                $memberView);
+
+$editBoatController = new editBoatController($createBoatView, 
+                                                $memberCatalogue, 
+                                                $memberView);
+                                                
+$deleteBoatController = new deleteBoatController($memberCatalogue, 
+                                                 $memberView);
+                                                 
+$controller = new Controller($memberCatalogue,
+                            $container, 
+                            $createMemberController, 
+                            $memberListView, 
+                            $deleteMemberController, 
+                            $editMemberController,
+                            $createBoatController,
+                            $deleteBoatController, 
+                            $editBoatController); 
 
 //Handle input
 $controller->doAction();

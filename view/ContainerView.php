@@ -19,6 +19,21 @@ class ContainerView {
     private $userWantToCreateMember = false;
     private $userWantToAddBoat = false;
     
+    /*
+    <-----Boat----->
+    
+    Description:
+    Renders html withing the container
+    
+    Constructor parameters:
+    -MemberCatalogue from model
+    -MemberListView from View
+    -NavigationView from view
+    -CreateMemberView from view
+    -MemberView from view
+    -CreateBoatView from view
+    */
+    
     
     function __construct($memberCatalogue,$memberListView, $navigationView, $createMemberView, $memberView, $createBoatView){
         $this->memberCatalogue = $memberCatalogue;

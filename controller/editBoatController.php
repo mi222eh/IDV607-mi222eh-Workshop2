@@ -4,7 +4,17 @@ class editBoatController{
     private $createBoatView;
     private $memberCatalogue; 
     private $memberView;
+    /*
+    <-----Edit Boat Controller----->
     
+    Description:
+    Edits or prepares a boat
+    
+    Constructor parameters:
+    -Membercatalogue from model
+    -MemberView from View
+    -CreateBoatView from View
+    */
     function __construct($createBoatView, $memberCatalogue, $memberView){
         $this->createBoatView = $createBoatView;
         $this->memberCatalogue = $memberCatalogue;
