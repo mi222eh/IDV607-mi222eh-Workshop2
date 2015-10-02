@@ -42,6 +42,9 @@ class ContainerView {
             if($this->doesUserWantToAddBoat()){
                 $ret .= $this->createBoatView->response(false, $this->memberCatalogue);
             }
+            elseif($this->doesUserWantToEditBoat()){
+                $ret .= $this->createBoatView->response(true, $this->memberCatalogue);
+            }
             else{
                 $ret .= $this->createMemberView->response(true, $this->memberCatalogue);
             }
@@ -98,5 +101,17 @@ class ContainerView {
     
     public function doesUserWantToAddBoat(){
         return $this->memberView->userWantToAddBoat();
+    }
+    
+    public function doesUserWantToDeleteBoat(){
+        return $this->memberView-> userWantToDeleteBoat();
+    }
+    
+    public function doesUserWantToEditBoat(){
+        return $this->memberView->userWantToEditBoat();
+    }
+    
+    public function didUserClickEditBoat(){
+        return $this->createBoatView->didUserClickEdit();
     }
 }

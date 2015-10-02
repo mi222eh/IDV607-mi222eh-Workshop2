@@ -42,14 +42,15 @@ class CreateBoatView{
     }
     
     function generateEditBoat($memberCat){
-        $boat = $memberCat->getToBeViewed()->getToBeViewedBoat();
+        $member = $memberCat->getToBeViewed();
+        $boat = $member->getToWatch();
         
         $ret = '<form method="POST">
                     <fieldset>
                         <legend>Redigera båt</legend>
                         Typ: <input type="text" value="'. $boat->getType() .'" id="'. self::$type .'" name="'. self::$type .'"></input><br>
                         Längd: <input type="number" value="'. $boat->getLength() .'"  id="'. self::$length .'" name="'. self::$length .'"></input><br>
-                        <input type="submit" value="Uppdatera båt" id="'. self::$edit .'" name="'. self::$edit .'"></input>
+                        <input type="submit" value="Redigera båt" id="'. self::$edit .'" name="'. self::$edit .'"></input>
                     </fieldset>
                 </form>';
         return $ret;

@@ -10,6 +10,12 @@ html{
 	
 }
 
+a{
+	font-family: Verdana;
+	font-size: 20px;
+	color: black;
+}
+
 h1{
 	text-align: center;
 }
@@ -31,11 +37,17 @@ h1{
 	text-decoration: none;
 }
 
-a{
+.memberContainer a{
 	padding:3px;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: italic;
-	color: black;
+	color: silver;
+	font-family: Verdana;
+	text-decoration: none;
+}
+
+.boatContainer a{
+	font-size: 12px;
 }
 
 a:hover{
@@ -51,13 +63,9 @@ ul{
 }
 #container ul{
 	padding-left: 0px;
-	/*width:400px;*/
-	/*margin-left: 450px;*/
-	/*margin-right: 200px;*/
+
 }
-/*#container ul{*/
-/*	border: solid 1px black;*/
-/*}*/
+
 
 #container ul a{
 	text-decoration: none;
@@ -80,125 +88,24 @@ form{
 	margin: 0 auto 1% auto;
 	padding-bottom: 1%;
 	background-color: fuchsia;
-	
+	border-radius: 50px;
 }
 
 .memberContainer h2, .memberContainer a{
 	word-wrap:break-word;
 }
 
+.boatContainer{
+	border-width: 2px;
+	border-style: solid;
+	border-color: purple;
+	width: 50%;
+	margin: 0 auto 1% auto;
+	padding-bottom: 1%;
+	background-color: #CC00CC;
+	border-radius: 50px;
+}
 
-
-/*html, body, div, span, applet, object, iframe,*/
-/*h1, h2, h3, h4, h5, h6, p, blockquote, pre,*/
-/*a, abbr, acronym, address, big, cite, code,*/
-/*del, dfn, em, img, ins, kbd, q, s, samp,*/
-/*small, strike, strong, sub, sup, tt, var,*/
-/*b, u, i, center,*/
-/*dl, dt, dd, ol, ul, li,*/
-/*fieldset, form, label, legend,*/
-/*table, caption, tbody, tfoot, thead, tr, th, td,*/
-/*article, aside, canvas, details, embed, */
-/*figure, figcaption, footer, header, hgroup, */
-/*menu, nav, output, ruby, section, summary,*/
-/*time, mark, audio, video {*/
-/*	margin: 0;*/
-/*	padding: 0;*/
-/*	border: 0;*/
-/*	font-size: 100%;*/
-/*	font: inherit;*/
-/*	vertical-align: baseline;*/
-/*}*/
-/* HTML5 display-role reset for older browsers */
-/*article, aside, details, figcaption, figure, */
-/*footer, header, hgroup, menu, nav, section {*/
-/*	display: block;*/
-/*}*/
-/*body {*/
-/*	line-height: 1;*/
-/*}*/
-/*ol, ul {*/
-/*	list-style: none;*/
-/*}*/
-/*blockquote, q {*/
-/*	quotes: none;*/
-/*}*/
-/*blockquote:before, blockquote:after,*/
-/*q:before, q:after {*/
-/*	content: '';*/
-/*	content: none;*/
-/*}*/
-/*table {*/
-/*	border-collapse: collapse;*/
-/*	border-spacing: 0;*/
-/*}*/
-
-
-/*h1{*/
-/*    font-family: Arial;*/
-/*    font-size: 30px;*/
-    
-/*}*/
-
-/*ul {*/
-/*    float: left;*/
-/*    width: 100%;*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-/*    list-style-type: none;*/
-/*}*/
-
-/*a {*/
-/*    float: left;*/
-/*    width: 6em;*/
-/*    text-decoration: none;*/
-/*    color: white;*/
-/*    background-color: purple;*/
-/*    padding: 0.2em 0.6em;*/
-/*    border-right: 1px solid white;*/
-/*}*/
-
-/*a:hover {*/
-/*    background-color: fuchsia;*/
-/*}*/
-
-/*ul li {*/
-/*    display: inline;*/
-/*}*/
-
-/*#nav ul li{ */
-/*  display: inline;*/
-/*  font-family: Verdana;*/
-/*	font-size: 16px;*/
-/*}*/
-
-
-/*h1{*/
-/*	font-family: Verdana;*/
-/*	font-size: 24px;*/
-/*}*/
-
-/*h2{*/
-/*	font-family: Verdana;*/
-/*	font-size: 18px;*/
-/*}*/
-
-/*h3{*/
-/*	font-family: Verdana;*/
-/*	font-size: 14px;*/
-/*}*/
-
-/*p{*/
-/*	font-family: Verdana;*/
-/*	font-size: 14px;*/
-/*}*/
-
-/*a{*/
-/*	font-family: Verdana;*/
-/*	font-size: 20px;*/
-/*	color: green;*/
-/*}*/
-
-/*body{*/
-/*	background-color: red;*/
-/*}*/
+.boatContainer h2, .boatContainer a{
+	word-wrap:break-word;
+}

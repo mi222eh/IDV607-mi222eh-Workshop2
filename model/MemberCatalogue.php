@@ -69,13 +69,9 @@ class MemberCatalogue {
     }
     
     public function editMemberById($id, $name, $ssn){
-        $member = new Member($id, $name, $ssn);
-        
-        foreach($this->members as $key=>$other){
-            if($other->getId() == $member->getId()){
-                $this->members[$key] = $member;
-            }
-        }
+        $member = $this->getMemberById($id);
+        $member->setName($name);
+        $member->setSsn($ssn);
         
         $this->saveMembers();
     }
@@ -86,4 +82,26 @@ class MemberCatalogue {
         
         $this->saveMembers();
     }
+    
+    function deleteBoatByMemberId($memberId, $boatId){
+        $member = $this->getMemberById($memberId);
+        $member->deleteBoat($boatId);
+        
+        $this->saveMembers();
+    }
+    
+    function setBoatToWatch($memberId, $boatId){
+        $member = $this->getMemberById($memberId);
+        $member->setToWatch($memberId);
+        $this->toBeViewed = $member;
+    }
+    
+    public function editBoatByMemberId($id, $type, $length, $boatId){
+        $member = $this->getMemberById($id);
+        
+        $member->editBoatById($boatId, $type, $length);
+        
+        $this->saveMembers();
+    }
+    
 }

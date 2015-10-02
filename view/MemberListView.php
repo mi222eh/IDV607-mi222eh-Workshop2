@@ -28,6 +28,8 @@ class MemberListView{
             <li>MedlemsId: '. $member->getId() .'</li>';
             $ret .='<ul>';
             foreach($member->getBoats() as $boat){
+                $ret .= '<div class="boatContainer">';
+                
                 $ret .='<li>
                             <h3>Båt: ' . $number . '</h3>
                         </li>';
@@ -37,6 +39,7 @@ class MemberListView{
                 $ret .='<li>
                             Längd: ' . $boat->getLength() . 
                         '</li>';
+                $ret .= '</div>';
                         
                 $number++;
             }
@@ -46,7 +49,7 @@ class MemberListView{
         }
         
         if(empty($memberCatalogue->getMembers())){
-            $ret .='Det finns inga medlemmar din jävla nolla :)';
+            $ret .='Det finns inga medlemmar i systemet.';
         }
 
         
@@ -73,7 +76,7 @@ class MemberListView{
         }
         
         if(empty($memberCatalogue->getMembers())){
-            $ret .='Det finns inga medlemmar din jävla nolla :)';
+            $ret .='Det finns inga medlemmar i systemet.';
         }
         
         $ret .='</ul>';
@@ -84,7 +87,7 @@ class MemberListView{
     private function generateLinks($member){
         $ret = '';
         
-        $ret .= '<a href="?'. self::$member .'='. $member->getId().'">Detaljer för medlem ' . $member->getName() . '</a>';
+        $ret .= '<a href="?'. self::$member .'='. $member->getId().'">Detaljer för ' . $member->getName() . '</a>';
         
         return $ret;
     }

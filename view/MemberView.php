@@ -5,6 +5,8 @@ class MemberView{
     private static $editMember = "editmember";
     private static $deleteMember = "deletemember";
     private static $newBoat = "newboat";
+    private static $deleteBoat = "deleteBoat";
+    private static $editBoat = "editBoat";
     
     function response($memberCatalogue){
         
@@ -14,7 +16,7 @@ class MemberView{
         
         $ret .= '<div class="memberContainer">';
         
-        $ret .= '<h2>'. $member->getName() .'</h2>';
+        $ret .= '<h1>'. $member->getName() .'</h1>';
         
         $ret .= '<ul>';
         
@@ -22,12 +24,18 @@ class MemberView{
         $ret .= '<li>Pnr: ' . $member->getPersonalNumber() . '</li>';
         $ret .= '</ul>';
         
-        $ret .= '<h3>Båtar</h3>';
+        $ret .= '<h2>Båtar</h2>';
         $ret .= '<ul>';
-        
+        $boatnr = 0;
         foreach($member->getBoats() as $boat) {
-            $ret .= '<li>' . $boat->getLength() .' </li>';
-            $ret .= '<li>' . $boat->getType() .' </li>';
+            $boatnr++;
+            $ret .= '<div class="boatContainer">';
+            $ret .= '<li><h3>Båt '. $boatnr . '</h3></li>';
+            $ret .= '<li>Typ: ' . $boat->getType() .' </li>';
+            $ret .= '<li>Längd: ' . $boat->getLength() .' meter</li>';
+            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$editBoat .'='. $boat->getId() .'">Redigera båt</a>';
+            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$deleteBoat .'='. $boat->getId() .'">Ta bort båt</a>';
+            $ret .= '</div>';
         }
         
         if(empty($member->getBoats())){
@@ -40,7 +48,7 @@ class MemberView{
         
         
         //ny båt här
-        $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$newBoat .'">Lägg till ny båt</a>';
+        $ret .='<br /><a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$newBoat .'">Lägg till ny båt</a>';
         
         $ret .= '</div>';
         
@@ -65,5 +73,21 @@ class MemberView{
     
     function getEditId(){
         return $_GET[self::$editMember];
+    }
+    
+    function getDeleteBoatId(){
+        return $_GET[self::$deleteBoat];
+    }
+    
+    function userWantToDeleteBoat(){
+        return isset($_GET[self::$deleteBoat]);
+    }
+    
+    function userWantToEditBoat(){
+        return isset($_GET[self::$editBoat]);
+    }
+    
+    function getEditBoatId(){
+        return $_GET[self::$editBoat];
     }
 }

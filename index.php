@@ -25,6 +25,8 @@ require_once("controller/editMemberController.php");
 require_once("controller/createMemberController.php");
 require_once("controller/deleteMemberController.php");
 require_once("controller/createBoatController.php");
+require_once("controller/editBoatController.php");
+require_once("controller/deleteBoatController.php");
 
 //Create Models
 $memberCatalogue = new MemberCatalogue();
@@ -43,7 +45,9 @@ $editMemberController = new editMemberController($memberView, $memberCatalogue, 
 $createMemberController = new createMemberController($memberCatalogue, $createMemberView);
 $deleteMemberController = new deleteMemberController($memberView, $memberCatalogue);
 $createBoatController = new createBoatController($memberCatalogue, $createBoatView, $memberView);
-$controller = new Controller($memberCatalogue, $container, $createMemberController, $memberListView, $deleteMemberController, $editMemberController, $createBoatController); 
+$editBoatController = new editBoatController($createBoatView, $memberCatalogue, $memberView);
+$deleteBoatController = new deleteBoatController($memberCatalogue, $memberView);
+$controller = new Controller($memberCatalogue, $container, $createMemberController, $memberListView, $deleteMemberController, $editMemberController, $createBoatController, $deleteBoatController, $editBoatController); 
 
 //Handle input
 $controller->doAction();
