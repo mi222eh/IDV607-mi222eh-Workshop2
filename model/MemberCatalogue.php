@@ -102,7 +102,7 @@ class MemberCatalogue {
     
     function setBoatToWatch($memberId, $boatId){
         $member = $this->getMemberById($memberId);
-        $member->setToWatch($memberId);
+        $member->setToWatch($boatId);
         $this->toBeViewed = $member;
     }
     

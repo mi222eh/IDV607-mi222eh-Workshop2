@@ -3,12 +3,10 @@
  <-----Navigation View----->
     
     Description:
-    Handles editing members
+    Handles navigation
     
     Constructor parameters:
-    -MemberView from View
-    -Membercatalogue from model
-    -CreateMemberView from View
+    Nothing
     */
 
 class NavigationView {

@@ -3,6 +3,17 @@
 class deleteMemberController{
     private $memberView;
     private $memberCatalogue;
+    
+     /*<-----Delete Member Controller----->
+    
+    Description:
+    Handles deleted members
+    
+    Constructor parameters:
+    -MemberView from View
+    -Membercatalogue from model
+    */
+    
     function __construct($memberView, $memberCatalogue){
         $this->memberView = $memberView;
         $this->memberCatalogue = $memberCatalogue;
