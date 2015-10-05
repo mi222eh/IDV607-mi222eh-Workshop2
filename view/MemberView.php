@@ -48,7 +48,9 @@ class MemberView{
             $ret .= '</div>';
         }
         
-        if(empty($member->getBoats())){
+        $boats = $member->getBoats();
+        
+        if(empty($boats)){
             $ret .= '<p>Medlemmen har inga båtar!</p>';
         }
         $ret .= '</ul>';

@@ -58,7 +58,7 @@ class MemberListView{
             $ret .= '</div>';
         }
         
-        if(empty($memberCatalogue->getMembers())){
+        if(empty($members)){
             $ret .='Det finns inga medlemmar i systemet.';
         }
 
@@ -69,6 +69,8 @@ class MemberListView{
     }
     
     function renderCompactList($memberCatalogue){
+        
+        $members = $memberCatalogue->getMembers();
         $ret = '<ul>';
         foreach($memberCatalogue->getMembers() as $member){
             $ret .= '<div class="memberContainer">';
@@ -85,7 +87,7 @@ class MemberListView{
         
         }
         
-        if(empty($memberCatalogue->getMembers())){
+        if(empty($members)){
             $ret .='Det finns inga medlemmar i systemet.';
         }
         
