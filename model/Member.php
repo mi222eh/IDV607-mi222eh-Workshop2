@@ -104,6 +104,10 @@ class Member{
     function editBoatById($boatId, $type, $length){
         $boat = $this->getBoatById($boatId);
         
+        if(empty($boat)){
+            throw new Exception();
+        }
+        
         $boat->setType($type);
         $boat->setLength($length);
     }

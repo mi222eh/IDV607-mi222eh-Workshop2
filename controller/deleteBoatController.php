@@ -14,7 +14,7 @@ class deleteBoatController{
     -Membercatalogue from model
     -MemberView from View
     */
-    function __construct($memberCat, $memberView){
+    function __construct(Membercatalogue $memberCat, MemberView $memberView){
      $this->memberCat = $memberCat;
      $this->memberView = $memberView;
     }

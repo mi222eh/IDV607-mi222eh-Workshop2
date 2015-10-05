@@ -54,6 +54,10 @@ class CreateMemberView{
     function generateEditMEmber($memberCat){
         $member = $memberCat->getToBeViewed();
         
+        if(empty($member)){
+            return $this->renderEmptyMember();
+        }
+        
         $ret = '<form method="POST">
                     <fieldset>
                         <legend>Redigera användare</legend>
@@ -67,5 +71,9 @@ class CreateMemberView{
     
     function didUserClickEdit(){
         return isset($_POST[self::$edit]);
+    }
+    
+    private function renderEmptyMember(){
+        return '<p>Medlemmen finns inte, är den borttagen?</p>';
     }
 }

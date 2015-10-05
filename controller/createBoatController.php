@@ -20,7 +20,7 @@ class createBoatController{
     -MemberView from View
     */
     
-    function __construct($memberCat, $createBoatView, $memberView){
+    function __construct(Membercatalogue $memberCat, CreateBoatView $createBoatView, MemberView $memberView){
         $this->createBoatView = $createBoatView;
         $this->memberCat = $memberCat;
         $this->memberView = $memberView;

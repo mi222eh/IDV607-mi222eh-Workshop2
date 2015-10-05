@@ -56,7 +56,7 @@ class CreateBoatView{
                         Typ: '. 
                         $this->getDropDownList()
                         .'
-                        Längd: <input type="number" id="'. self::$length .'" name="'. self::$length .'"></input><br>
+                        Längd: <input type="number" id="'. self::$length .'" name="'. self::$length .'"></input> meter<br>
                         <input type="submit" value="Skapa båt" id="'. self::$createNewBoat .'" name="'. self::$createNewBoat .'"></input>
                     </fieldset>
                 </form>';
@@ -67,7 +67,16 @@ class CreateBoatView{
     
     function generateEditBoat($memberCat){
         $member = $memberCat->getToBeViewed();
+        
+        if(empty($member)){
+            return $this->renderEmptyMember();
+        }
+        
         $boat = $member->getToWatch();
+        
+        if(empty($boat)){
+            return $this->renderEmptyBoat();
+        }
         
         $ret = '<form method="POST">
                     <fieldset>
@@ -75,14 +84,20 @@ class CreateBoatView{
                         Typ: '.
                         $this->getEditDropDownList($boat)
                         .'
-                        Längd: <input type="number" value="'. $boat->getLength() .'"  id="'. self::$length .'" name="'. self::$length .'"></input><br>
+                        Längd: <input type="number" value="'. $boat->getLength() .'"  id="'. self::$length .'" name="'. self::$length .'"></input> meter<br>
                         <input type="submit" value="Redigera båt" id="'. self::$edit .'" name="'. self::$edit .'"></input>
                     </fieldset>
                 </form>';
         return $ret;
     }
     
+    private function renderEmptyMember(){
+        return '<p>Medlemmen finns inte längre, är den borttagen?</p>';
+    }
     
+    private function renderEmptyBoat(){
+        return '<p>Båten finns inte längre, är den borttagen?</p>';
+    }
     
     private function getDropDownList(){
         return '<select name="'. self::$type .'" id="'. self::$type .'">

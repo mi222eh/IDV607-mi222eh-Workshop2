@@ -4,6 +4,8 @@ class MemberCatalogue {
     
     private $members = array();
     private $DAL;
+    
+    //Temporary member storage:
     private $toBeViewed;
     
     /*
@@ -80,6 +82,11 @@ class MemberCatalogue {
     
     public function editMemberById($id, $name, $ssn){
         $member = $this->getMemberById($id);
+        
+        if(empty($member)){
+            throw new Exception();
+        }
+        
         $member->setName($name);
         $member->setSsn($ssn);
         
@@ -102,6 +109,11 @@ class MemberCatalogue {
     
     function setBoatToWatch($memberId, $boatId){
         $member = $this->getMemberById($memberId);
+        
+        if(empty($member)){
+            throw new Exception();
+        }
+        
         $member->setToWatch($boatId);
         $this->toBeViewed = $member;
     }
@@ -109,7 +121,15 @@ class MemberCatalogue {
     public function editBoatByMemberId($id, $type, $length, $boatId){
         $member = $this->getMemberById($id);
         
-        $member->editBoatById($boatId, $type, $length);
+        if(empty($member)){
+            throw new Exception();
+        }
+        try{
+            $member->editBoatById($boatId, $type, $length);
+        }
+        catch(Exception $e){
+            throw new Exception();
+        }
         
         $this->saveMembers();
     }

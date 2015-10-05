@@ -43,8 +43,8 @@ class MemberView{
             $ret .= '<li><h3>Båt '. $boatnr . '</h3></li>';
             $ret .= '<li>Typ: ' . $boat->getType() .' </li>';
             $ret .= '<li>Längd: ' . $boat->getLength() .' meter</li>';
-            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$editBoat .'='. $boat->getId() .'">Redigera båt</a>';
-            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$deleteBoat .'='. $boat->getId() .'">Ta bort båt</a>';
+            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$editBoat .'='. $boat->getId() .'">Redigera båt</a><br>';
+            $ret .='<a href="?'. self::$editMember .'='. $member->getId() .'&'. self::$deleteBoat .'='. $boat->getId() .'">Ta bort båt</a><br>';
             $ret .= '</div>';
         }
         
@@ -53,8 +53,8 @@ class MemberView{
         }
         $ret .= '</ul>';
         
-        $ret .= '<a href="?'. self::$editMember .'='. $member->getId().'">Redigera medlem</a>';
-        $ret .= '<a href="?'. self::$deleteMember .'='. $member->getId().'">Ta bort medlem</a>';
+        $ret .= '<a href="?'. self::$editMember .'='. $member->getId().'">Redigera medlem</a><br>';
+        $ret .= '<a href="?'. self::$deleteMember .'='. $member->getId().'">Ta bort medlem</a><br>';
         
         
         //ny båt här

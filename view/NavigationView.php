@@ -3,10 +3,11 @@
  <-----Navigation View----->
     
     Description:
-    Handles navigation
+    Generate links
     
-    Constructor parameters:
+    Constructor parameter:
     Nothing
+   
     */
 
 class NavigationView {

@@ -15,7 +15,7 @@ class editBoatController{
     -MemberView from View
     -CreateBoatView from View
     */
-    function __construct($createBoatView, $memberCatalogue, $memberView){
+    function __construct(CreateBoatView $createBoatView, Membercatalogue $memberCatalogue, MemberView $memberView){
         $this->createBoatView = $createBoatView;
         $this->memberCatalogue = $memberCatalogue;
         $this->memberView = $memberView;
@@ -27,14 +27,23 @@ class editBoatController{
         $length = $this->createBoatView->getLength();
         $id = $this->memberView->getEditId();
     
-        $this->memberCatalogue->editBoatByMemberId($id, $type, $length, $boatId);
-        
+        try{
+            $this->memberCatalogue->editBoatByMemberId($id, $type, $length, $boatId);
+        }
+        catch(Exception $e){
+            header("location: ?");
+        }
         header("location: ?");
     }
     
     function prepareEdit(){
         $id = $this->memberView->getEditId();
         $boatId = $this->memberView->getEditBoatId();
-        $this->memberCatalogue->setBoatToWatch($id, $boatId);
+        try{
+            $this->memberCatalogue->setBoatToWatch($id, $boatId);
+        }
+        catch(Exception $e){
+            
+        }
     }
 }

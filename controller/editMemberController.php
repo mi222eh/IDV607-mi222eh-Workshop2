@@ -17,7 +17,7 @@ class editMemberController{
     -CreateMemberView from View
     */
     
-    function __construct($memberView, $memberCatalogue, $createMemberView){
+    function __construct(MemberView $memberView, Membercatalogue $memberCatalogue, CreateMemberView $createMemberView){
         $this->memberView = $memberView;
         $this->memberCatalogue = $memberCatalogue;
         $this->createMemberView = $createMemberView;
@@ -27,9 +27,12 @@ class editMemberController{
         $id = $this->memberView->getEditId();
         $name = $this->createMemberView->getName();
         $ssn = $this->createMemberView->getSsn();
-        
-        $this->memberCatalogue->editMemberById($id, $name, $ssn);
-        
+        try{
+            $this->memberCatalogue->editMemberById($id, $name, $ssn);
+        }
+        catch(Exception $e){
+            header("location: ?");
+        }
         header("location: ?");
     }
     
